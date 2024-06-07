@@ -9,7 +9,14 @@
         AllowsTransparency="True"
         Opacity="0.95"
         Topmost="True"
-        Title="ClipBoardHistory" Height="450" Width="327" FontSize="15" FontFamily="Consolas" MouseDown="WindowMDown" Background="Transparent">
+        Title="ClipBoardHistory" 
+        Height="450" 
+        Width="327" 
+        FontSize="15" 
+        FontFamily="Consolas" 
+        MouseDown="WindowMDown" 
+        Background="Transparent" 
+        WindowStartupLocation="CenterScreen">
     <Border CornerRadius="8" Background="Black">
         <Grid>
             <Grid.RowDefinitions>
