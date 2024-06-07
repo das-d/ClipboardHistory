@@ -58,6 +58,7 @@ namespace ClipboardHistory
 
                     _clipElements.Add(cte);
                     ClipHistory.Children.Add(cte);
+                    SrcVwr.ScrollToEnd();
                 }
             }
         }

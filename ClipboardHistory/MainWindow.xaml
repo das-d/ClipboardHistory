@@ -10,7 +10,7 @@
         Opacity="0.95"
         Topmost="True"
         Title="ClipBoardHistory" 
-        Height="450" 
+        Height="467" 
         Width="327" 
         FontSize="15" 
         FontFamily="Consolas" 
@@ -38,7 +38,7 @@
                 </Grid>
             </Border>
 
-            <ScrollViewer Grid.Row="1">
+            <ScrollViewer Grid.Row="1" x:Name="SrcVwr">
                 <WrapPanel x:Name="ClipHistory" Margin="5"/>
             </ScrollViewer> 
         </Grid>
