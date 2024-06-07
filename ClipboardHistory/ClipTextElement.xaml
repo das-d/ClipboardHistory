@@ -8,7 +8,7 @@
              Height="57" Width="300" Foreground="Black" FontSize="13" Margin="0,0,0,5">
     <Grid>
         <Border CornerRadius="5" Background="DimGray" >
-            <TextBlock x:Name="ClipText" Margin="5" TextTrimming="CharacterEllipsis" ToolTipService.InitialShowDelay="2" ToolTipService.BetweenShowDelay="2"  ToolTipService.ShowDuration="30000"/>
+            <TextBlock x:Name="ClipText" Margin="5" TextTrimming="CharacterEllipsis" TextWrapping="Wrap" ToolTipService.InitialShowDelay="2" ToolTipService.BetweenShowDelay="2"  ToolTipService.ShowDuration="30000"/>
         </Border>
     </Grid>
 </UserControl>

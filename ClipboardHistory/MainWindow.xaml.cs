@@ -35,32 +35,40 @@ namespace ClipboardHistory
 
         private void PollTimerTicked(object sender, EventArgs e)
         {
-            if (Clipboard.ContainsText())
+            try
             {
-                var clipText = Clipboard.GetText();
-                if (!_lastClipboardText.Equals(clipText))
+                if (Clipboard.ContainsText())
                 {
-                    _lastClipboardText = clipText;
-
-                    var cte = new ClipTextElement();
-                    cte.ClipText.Text = clipText;
-                    cte.ToolTip = clipText;
-
-                    var oldCte = _clipElements.Where(x => x.ClipText.Text.Equals(clipText)).FirstOrDefault();
-
-                    if (oldCte != null)
+                    var clipText = Clipboard.GetText();
+                    if (!_lastClipboardText.Equals(clipText))
                     {
-                        return;
+                        _lastClipboardText = clipText;
+
+                        var cte = new ClipTextElement();
+                        cte.ClipText.Text = clipText;
+                        cte.ToolTip = clipText;
+
+                        var oldCte = _clipElements.Where(x => x.ClipText.Text.Equals(clipText)).FirstOrDefault();
+
+                        if (oldCte != null)
+                        {
+                            return;
+                        }
+
+                        cte.MouseLeftButtonDown += HandleLMB;
+                        cte.MouseRightButtonDown += HandleRMB;
+
+                        _clipElements.Add(cte);
+                        ClipHistory.Children.Add(cte);
+                        SrcVwr.ScrollToEnd();
                     }
-
-                    cte.MouseLeftButtonDown += HandleLMB;
-                    cte.MouseRightButtonDown += HandleRMB;
-
-                    _clipElements.Add(cte);
-                    ClipHistory.Children.Add(cte);
-                    SrcVwr.ScrollToEnd();
                 }
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Clipboard GetText Error");
+            }
+
         }
 
         private void HandleLMB(object sender, MouseButtonEventArgs e)
@@ -74,7 +82,7 @@ namespace ClipboardHistory
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message);
+                    MessageBox.Show(ex.Message, "Clipboard SetText Error");
                 }
             }
         }
