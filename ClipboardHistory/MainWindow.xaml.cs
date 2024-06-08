@@ -27,7 +27,7 @@ namespace ClipboardHistory
         public MainWindow()
         {
             InitializeComponent();
-            _pollTimer.Interval = TimeSpan.FromMilliseconds(125);
+            _pollTimer.Interval = TimeSpan.FromMilliseconds(500);
             _pollTimer.Tick += new EventHandler(PollTimerTicked);
             _pollTimer.Start();
             _lastClipboardText = Clipboard.GetText();
