@@ -73,6 +73,7 @@ namespace ClipboardHistory
 
         private void HandleLMB(object sender, MouseButtonEventArgs e)
         {
+            _pollTimer.Stop();
             if (sender is ClipTextElement cte)
             {
                 try
@@ -85,6 +86,7 @@ namespace ClipboardHistory
                     MessageBox.Show(ex.Message, "Clipboard SetText Error");
                 }
             }
+            _pollTimer.Start();
         }
 
         private void HandleRMB(object sender, MouseButtonEventArgs e)
